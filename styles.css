@@ -2081,3 +2081,18 @@ p {
     mask-size: auto 100%;
   }
 }
+
+/* Full-bleed section backgrounds; keep inner content gutters controlled by .section. */
+.maker,
+.site-footer.consult-footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.site-footer.consult-footer {
+  background-color: var(--pink);
+  background-image: url("assets/footer_background.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+}
