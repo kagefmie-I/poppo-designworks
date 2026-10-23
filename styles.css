@@ -2096,3 +2096,19 @@ p {
   background-position: center top;
   background-size: 100% auto;
 }
+
+/* Let the mirrored pink maker wave span the full viewport width. */
+.maker::before {
+  left: calc(50% - 50vw);
+  right: auto;
+  width: 100vw;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+@media (max-width: 760px) {
+  .maker::before {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+}
