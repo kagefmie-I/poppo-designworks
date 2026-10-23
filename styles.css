@@ -1878,3 +1878,116 @@ p {
   mask-repeat: no-repeat;
   mask-mode: alpha;
 }
+
+/* Opening composition: keep the 1200 x 1440 design board proportional. */
+.opening {
+  height: min(120vw, 1440px);
+  min-height: 0;
+}
+
+.opening-scenery {
+  width: min(100%, 1200px);
+  height: 100%;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.opening-title {
+  top: min(45.6vw, 547px);
+  left: max(0px, calc((100vw - 1200px) / 2));
+  right: max(0px, calc((100vw - 1200px) / 2));
+  padding-inline: min(8vw, 96px);
+}
+
+.opening-copy {
+  top: min(82.8vw, 994px);
+  left: max(0px, calc((100vw - 1200px) / 2));
+  right: max(0px, calc((100vw - 1200px) / 2));
+  padding-inline: clamp(18px, 5vw, 60px);
+}
+
+/* Crop positions are easy to tune per project image. */
+:root {
+  --case-image-position-activity: 50% 24%;
+  --case-image-position-archive: 50% 50%;
+  --case-image-position-debut: 50% 40%;
+}
+
+/* Reuse the exported SVG silhouette for every blob-shaped image and button. */
+.blob-photo,
+.case-photo,
+.maker-photo,
+.case-hover,
+.site-footer.consult-footer .form-button {
+  -webkit-mask-image: url("assets/blob_top.svg");
+  mask-image: url("assets/blob_top.svg");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
+}
+
+.site-footer.consult-footer .form-button {
+  clip-path: none;
+}
+
+/* The marquee copies are sized to cover wide screens without a blank seam. */
+@keyframes marquee-left {
+  to { transform: translate3d(var(--marquee-distance, -50%), 0, 0); }
+}
+
+@keyframes marquee-right {
+  from { transform: translate3d(var(--marquee-distance, -50%), 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@media (max-width: 760px) {
+  .opening {
+    height: max(120vw, 680px);
+  }
+
+  .opening-scenery {
+    width: 100%;
+    height: min(120vw, 912px);
+  }
+
+  .opening-title {
+    top: 45.6vw;
+  }
+
+  .opening-copy {
+    top: min(82.8vw, 994px);
+  }
+
+  .opening-text h2 {
+    font-size: clamp(12px, 3.8vw, 18px);
+  }
+
+  .blob-arrow {
+    font-size: clamp(11px, 1.6vw, 13px);
+    padding: 7px 14px 7px 18px;
+  }
+}
+/* Keep the title and link banner proportional to the design-board width. */
+.opening-title {
+  font-size: min(5.4vw, 64.8px);
+}
+
+.blob-arrow {
+  font-size: clamp(12px, 1vw, 14px);
+  padding: 8px 16px 8px 20px;
+}
+
+@media (max-width: 760px) {
+  .opening-title {
+    font-size: clamp(30px, 5.4vw, 64.8px);
+  }
+
+  .blob-arrow {
+    font-size: clamp(11px, 1.6vw, 13px);
+  }
+}
