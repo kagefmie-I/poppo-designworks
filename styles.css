@@ -2112,3 +2112,11 @@ p {
     mask-size: 100% 100%;
   }
 }
+
+/* Final full-viewport alignment for the mirrored maker SVG mask. */
+.maker::before {
+  left: 50%;
+  right: auto;
+  width: 100vw;
+  transform: translateX(-50%) scaleX(-1);
+}
