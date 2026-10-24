@@ -197,6 +197,8 @@ button {
 .town-green {
   z-index: 1;
   top: -4%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .town-yellow {
